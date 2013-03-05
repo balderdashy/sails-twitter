@@ -6,6 +6,21 @@ This adapter provides access to the Twitter API via the Sails.js ORM.
 
 To use, include in your "api/adapters" directory.
 
+## Example
+
+Here's some example usage:
+
+```javascript
+// api/models/Tweet.js
+module.exports = {
+  adapter: 'twitter',
+  consumer_key: 'asdfasdgasgasgas',
+  consumer_secret: '34234623yrhgewh',
+  access_token: 'adsga4hahah',
+  access_token_secret: '5hw45hfhs'
+};
+```
+
 ## About Sails.js and Waterline
 http://SailsJs.com
 
