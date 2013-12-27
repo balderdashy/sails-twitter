@@ -14,11 +14,16 @@ Here's some example usage:
 // api/models/Tweet.js
 module.exports = {
   adapter: 'twitter',
-  consumer_key: 'asdfasdgasgasgas',
-  consumer_secret: '34234623yrhgewh',
-  access_token: 'adsga4hahah',
-  access_token_secret: '5hw45hfhs'
 };
+
+// config/adapters.js, add:
+twitter: {
+    module: 'sails-twitter',
+    consumerKey: 'nT9b8a1XJO0pqLjQ',
+    consumerSecret: '7IeoQELu4isOkYKYvbV5rAbAHHU4GpIV2o8asiI',
+    accessToken: '631994755-FKBfx8TusaXklpUmMXhtqp5PYJjcwVWQGaBBO',
+    accessTokenSecret: 'OOz4leiljjaAUIOwlS8uipe62qZL9ThZ796MA9GbDF'
+}
 ```
 
 ## About Sails.js and Waterline

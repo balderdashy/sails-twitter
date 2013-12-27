@@ -1,8 +1,8 @@
 {
   "name": "sails-twitter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Twitter adapter for Sails.js",
-  "main": "BoilerplateAdapter.js",
+  "main": "TwitterAdapter.js",
   "scripts": {
     "test": "echo \"Adapter should be tested using Sails.js core.\" && exit 1"
   },

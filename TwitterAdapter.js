@@ -13,10 +13,10 @@ module.exports = {
 	registerCollection: function (collection, cb) {
 		this.connections[collection.identity] = {
 			api: new Twit({
-				consumer_key: collection.consumerKey,
-				consumer_secret: collection.consumerSecret,
-				access_token: collection.accessToken,
-				access_token_secret: collection.accessTokenSecret
+				consumer_key: collection.config.consumerKey,
+				consumer_secret: collection.config.consumerSecret,
+				access_token: collection.config.accessToken,
+				access_token_secret: collection.config.accessTokenSecret
 			})
 		};
 		cb();
