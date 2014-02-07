@@ -10,27 +10,32 @@ module.exports = {
 
 	connections: {},
 	
-	registerCollection: function (collection, cb) {
-		this.connections[collection.identity] = {
-			api: new Twit({
-				consumer_key: collection.config.consumerKey,
-				consumer_secret: collection.config.consumerSecret,
-				access_token: collection.config.accessToken,
-				access_token_secret: collection.config.accessTokenSecret
+	registerConnection: function (connection, collections, cb) {
+		this.connections[connection.identity] = {
+			config: connection,
+      collections: collections,
+			client: new Twit({
+				consumer_key: connection.consumerKey,
+				consumer_secret: connection.consumerSecret,
+				access_token: connection.accessToken,
+				access_token_secret: connection.accessTokenSecret
 			})
 		};
 		cb();
 	},
 
-	find: function (collectionName, options, cb) {
+	find: function (connectionName, collectionName, options, cb) {
 
 		// for now, only use the "where" part of the criteria set
-		var criteria = options.where || {};
+		var where = options.where || {};
+
+		// TODO: be smarter
+		
 
 		switch (collectionName) {
-			case 'location'	: return this.trendingPlaces(collectionName, criteria, afterwards);
-			case 'trend'	: return this.trends(collectionName, criteria, afterwards);
-			case 'tweet'	: return this.searchTweets(collectionName, criteria, afterwards);
+			case 'location'	: return this.trendingPlaces(collectionName, where, afterwards);
+			case 'trend'	: return this.trends(collectionName, where, afterwards);
+			case 'tweet'	: return this.searchTweets(collectionName, where, afterwards);
 			default: return afterwards('Unknown usage of find() with model ('+collectionName+') ');
 		}
 
@@ -42,7 +47,7 @@ module.exports = {
 		}
 	},
 
-	searchTweets: function (collectionName, criteria, cb) {
+	searchTweets: function (connectionName, collectionName, criteria, cb) {
 		this.connections[collectionName].api.get('search/tweets', criteria, function (err, result) {
 			if (err) return cb(err);
 			if (!(result && result.statuses) ) return cb(result);
@@ -50,7 +55,7 @@ module.exports = {
 		});
 	},
 
-	trends: function (collectionName, criteria, cb) {
+	trends: function (connectionName, collectionName, criteria, cb) {
 		this.connections[collectionName].api.get('trends/place', {
 			id: criteria.id || 1
 		}, function (err, result) {
@@ -60,7 +65,7 @@ module.exports = {
 		});
 	},
 
-	trendingPlaces: function (collectionName, criteria, cb) {
+	trendingPlaces: function (connectionName, collectionName, criteria, cb) {
 		this.connections[collectionName].api.get('trends/closest', {
 			lat: criteria.lat || 0,
 			long: criteria.long || 0
