@@ -1,30 +1,38 @@
 {
-  "name": "sails-twitter",
-  "version": "0.0.2",
-  "description": "Twitter adapter for Sails.js",
-  "main": "TwitterAdapter.js",
+  "name": "waterline-twitter",
+  "version": "0.10.0",
+  "description": "twitter adapter for Sails / Waterline",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Adapter should be tested using Sails.js core.\" && exit 1"
+    "test": "node test/integration/runner -R spec -b"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/balderdashy/sails-twitter.git"
   },
   "keywords": [
-    "orm",
     "twitter",
-    "waterline",
+    "adapter",
     "sails",
-    "sailsjs",
-    "sails.js"
+    "waterline",
+    "sails.js",
+    "plugin",
   ],
-  "author": "Mike McNeil",
+  "author": "balderdashy",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "dependencies": {
-    "async": "0.1.22",
-    "underscore": "1.4.3",
-    "underscore.string": "2.3.1",
-    "twit": "~1.1.5"
+  "dependencies": {},
+  "devDependencies": {
+    "waterline-adapter-tests": "git://github.com/balderdashy/waterline-adapter-tests.git#associations",
+    "mocha": "*",
+    "captains-log": "~0.11.0"
+  },
+  "waterlineAdapter": {
+    "type": "twitter",
+    "interfaces": [
+      "semantic",
+      "queryable"
+    ],
+    "waterlineVersion": "~0.10.0"
   }
 }
