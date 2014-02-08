@@ -16,12 +16,14 @@
     "sails",
     "waterline",
     "sails.js",
-    "plugin",
+    "plugin"
   ],
   "author": "balderdashy",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "dependencies": {},
+  "dependencies": {
+    "twit": "~1.1.12"
+  },
   "devDependencies": {
     "waterline-adapter-tests": "git://github.com/balderdashy/waterline-adapter-tests.git#associations",
     "mocha": "*",

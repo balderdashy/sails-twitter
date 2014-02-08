@@ -64,9 +64,9 @@ new TestRunner({
     // Load the adapter module.
     adapter: Adapter,
 
-    // Default adapter config to use.
+    // Default connection config to use.
     config: {
-        schema: false
+
     },
 
     // The set of adapter interfaces to test against.
