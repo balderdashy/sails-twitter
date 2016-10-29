@@ -1,3 +1,10 @@
+> ### Deprecated
+> For exaplanation, see https://github.com/treelinehq/waterline-query-docs/issues/2.
+>
+> If you're interested in implementing Twitter authentication, or enabling other Twitter features, see http://node-machine.org/machinepack-twitter.  If you'd like to contribute, see https://github.com/irlnathan/machinepack-twitter/tree/master/machines.
+
+
+
 ![image_squidhome@2x.png](http://i.imgur.com/RIvu9.png) 
 
 # TwitterAdapter
